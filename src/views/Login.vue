@@ -29,7 +29,8 @@ const form = ref({
 
 const  loginClick = () => {
   if (0 == 0) {
-    router.replace('/navigation')
+    router.replace('/home')
+    localStorage.setItem('token', "abc123456");
     return
   }
   if (form.value.username && form.value.password) {

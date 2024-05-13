@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import SideBar from "@/views/components/SideBar.vue";
 </script>
 
 <template>
@@ -8,4 +9,5 @@
 </template>
 
 <style scoped>
+
 </style>

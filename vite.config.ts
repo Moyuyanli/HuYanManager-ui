@@ -12,10 +12,7 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    }
-})
-
-module.exports = {
+    },
     server: {
         proxy: {
             '/api': {
@@ -25,4 +22,4 @@ module.exports = {
             }
         }
     },
-}
+})

@@ -1,12 +1,13 @@
 import {post} from "@/utils/methods";
+import type {Result} from "@/apis/type/Results";
 
-interface LoginUser{
-    username:string,
-    password:string,
+export interface LoginUser {
+    username: string,
+    password: string,
 }
 
 
-interface UserInfo {
+export interface UserInfo {
     user: {
         id: number;
         username: string;
@@ -19,13 +20,6 @@ interface UserInfo {
  * 登录
  * @param data
  */
-export function login(data:LoginUser) {
-    return post<UserInfo>("auth/login", data)
-        .then(res=>{
-            localStorage.setItem('token', res.token);
-            return res;
-        }).catch(error => {
-            console.error('Login failed:', error);
-            throw error;
-        });
+export function login(data: LoginUser) {
+    return post<Result<UserInfo>>("auth/login", data)
 }

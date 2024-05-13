@@ -8,7 +8,7 @@
         <el-input v-model="form.password" type="password"></el-input>
       </el-form-item>
       <el-form-item>
-        <button class="login-button" @click="login">登录</button>
+        <el-button class="login-button" @click="loginClick">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -16,14 +16,38 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
+import {login, type LoginUser,} from "@/apis/api/login";
+import {ElMessage} from "element-plus";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 
 const form = ref({
   username: null,
   password: null,
 })
 
-const login = () => {
-  http.get()
+const  loginClick = () => {
+  if (0 == 0) {
+    router.replace('/navigation')
+    return
+  }
+  if (form.value.username && form.value.password) {
+    let loginUser: LoginUser = {
+      username: form.value.username,
+      password: form.value.password,
+    };
+    login(loginUser).then(res => {
+      if (res.code === 200) {
+        localStorage.setItem('token', res.data.token);
+        // router.push("navigation")
+      } else {
+        ElMessage.error(res.msg);
+      }
+    }).catch(err => {
+      ElMessage.error(err.msg)
+    });
+  }
 }
 
 </script>

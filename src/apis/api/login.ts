@@ -6,13 +6,16 @@ export interface LoginUser {
     password: string,
 }
 
-
 export interface UserInfo {
-    user: {
-        id: number;
-        username: string;
-        email: string;
-    };
+    id: number;
+    username: string;
+    url: string;
+    startTime: Date;
+}
+
+
+export interface LoginResult {
+    user: UserInfo;
     token: string;
 }
 
@@ -21,5 +24,5 @@ export interface UserInfo {
  * @param data
  */
 export function login(data: LoginUser) {
-    return post<Result<UserInfo>>("auth/login", data)
+    return post<Result<LoginResult>>("auth/login", data)
 }

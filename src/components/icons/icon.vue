@@ -1,28 +1,40 @@
 <template>
-  <el-icon>
+  <el-icon
+      :class="['custom-icon', props.class]"
+      :color="props.color"
+      :size="props.size"
+  >
     <component :is="props.icon"/>
   </el-icon>
 </template>
 
-<script setup lang="ts">
-
-
-
-import {Comment} from "@element-plus/icons-vue";
-
+<script lang="ts" setup>
 const props = defineProps({
   /**
    * 图标
    */
-  icon:{
-    type:String,
-    required:true
-  }
+  icon: {
+    type: String,
+    required: true
+  },
+  size: {
+    type: Number,
+    default: 20,
+    required: false,
+  },
+  color: {
+    type: String,
+    required: false,
+  },
+  class: {
+    type: String,
+    default: '',
+    required: false,
+  },
 });
-
 </script>
 
 
-<style scoped>
+<style>
 
 </style>

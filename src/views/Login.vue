@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-import {login, type LoginUser,} from "@/apis/api/login";
+import {login, type LoginUser, type UserInfo,} from "@/apis/api/login";
 import {ElLoading, ElMessage} from "element-plus";
 import {useRouter} from "vue-router";
 import {getToken} from "@/utils/auth";
@@ -37,6 +37,13 @@ const form = ref({
 const loginClick = () => {
   if (0 == 0) {
     localStorage.setItem('token', "abc123456");
+    let user: UserInfo = {
+      id: 572490972,
+      username: "放空",
+      url: "https://data.chahuyun.cn/file/bg-3.png",
+      startTime: new Date(),
+    }
+    localStorage.setItem('userInfo', JSON.stringify(user));
     toHome()
     return;
   }
@@ -53,6 +60,7 @@ const loginClick = () => {
     login(loginUser).then(res => {
       if (res.code === 200) {
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('userInfo', JSON.stringify(res.data.user));
         toHome()
       } else {
         ElMessage.error(res.msg);
@@ -98,6 +106,7 @@ const toHome = () => {
   height: 250px;
   background: rgba(255, 255, 255, 0.72);
   border-radius: 30px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 .userId {

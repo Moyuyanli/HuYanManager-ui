@@ -26,9 +26,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
         <el-menu
             :default-active="$route.path"
             :unique-opened="true"
-            class="el-menu"
             router
-
         >
           <!--        active-text-color="#fff"-->
           <!--        background-color="#00e676"-->
@@ -64,7 +62,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
   height: 100vh;
   display: flex;
   justify-content: space-between;
-  background: #bdbdbd;
+  background: $bg-grey-color;
   //background: url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
   //background-size: cover;
 }
@@ -72,9 +70,6 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
 .sidebar {
   width: 9.5%;
   height: 100vh;
-  //margin-top: 5px;
-  //margin-left: 10px;
-  //border-radius: 0 10px 10px 0;
   background: $bg-color;
   box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
@@ -98,7 +93,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
   height: 8vh;
   text-align: center;
   line-height: 8vh;
-  //background-color: $title-bg-color;
+  background-color: $title-bg-color;
   color: $title-lord-color;
   margin-bottom: 3px;
 }
@@ -109,8 +104,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
   overflow-y: auto;
   margin: 10px auto 0;
   border-radius: 10px 0 0 10px;
-  background: $bg-transparent-color;
-  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
+  background: linear-gradient($bg-transparent-color, $bg-transparent-color), url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
   background-size: cover;
   box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
 

@@ -59,13 +59,14 @@ const props = defineProps({
 
 .is-active {
   background: $bg-light-color;
-  font-weight: 700;
+  color: $text-color;
+  font-weight: 500;
 }
 
 .el-menu-item {
   &:hover {
-    color: $bg-hover-color;
-    font-weight: 700;
+    background: $bg-hover-color;
+    color: $text-color;
   }
 }
 

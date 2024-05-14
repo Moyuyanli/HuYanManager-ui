@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 // sidebarItem 项组件
 import SideBarItem from './sidebar/sidebarItem.vue';
+import topBar from './topBar/index.vue';
 import {useRouter} from 'vue-router';
 import Icon from "@/components/icons/icon.vue";
 
@@ -45,11 +46,13 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
     </div>
     <div class="subject">
       <!-- 顶栏 -->
-      <div class="top_bar"></div>
-      <!-- 内容 -->
-      <div class="content">
-        <router-view class="view"></router-view>
+      <div class="top_bar">
+        <topBar></topBar>
       </div>
+      <!-- 内容 -->
+      <el-scrollbar class="content" view-class="scrollbar">
+        <router-view class="view"></router-view>
+      </el-scrollbar>
     </div>
   </div>
 </template>
@@ -112,5 +115,11 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
     padding: 5px 0 0 5px;
   }
 }
+
+:deep(.el-scrollbar__thumb) {
+  background-color: $scroll-block-color !important;
+}
+
+
 </style>
 

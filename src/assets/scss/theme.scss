@@ -1,0 +1,10 @@
+$bg-color: rgba(255, 255, 255, 0.85);
+$bg-bottom-color: rgba(241, 242, 244, 0.8);
+$bg-light-color: rgba(178, 235, 242, 0.8);
+$bg-hover-color: rgba(224, 247, 250, 0.8);
+
+$title-lord-color: rgb(237, 177, 16);
+$title-bg-color: rgba(227, 198, 207, 0.9);
+
+//#000
+$text-color: lighten($bg-bottom-color, 50%); // 或者使用 lighten($background-color, 50%) 自动计算对比色

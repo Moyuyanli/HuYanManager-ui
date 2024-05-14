@@ -15,10 +15,11 @@ const cleanToken = () => {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
+@use "@/assets/scss/theme.scss" as *;
 .home {
   width: 100%;
   height: 100vh;
-  background: rgba(75, 203, 232, 0.71);
+  background: $bg-color;
 }
 </style>

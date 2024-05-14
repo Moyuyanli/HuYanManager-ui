@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 import {type RouteRecordRaw} from 'vue-router';
+import Icon from "@/components/icons/icon.vue";
 // 做类型限制，解决ts类型报错
 type CustomRouteRecordRaw = RouteRecordRaw & {
   meta: {
     isShow?: boolean;
+    title?: string;
+    icon?: string;
   };
 };
 
@@ -23,7 +26,7 @@ const props = defineProps({
       <template v-if="item.meta.icon" #title>
         <!-- 菜单项图标，我此处用的是全局封装的 svg组件 -->
         <el-icon>
-<!--          <svg-icon :icon-class="item.meta.icon"/>-->
+          <icon :icon="item.meta.icon"></icon>
         </el-icon>
         <!-- 菜单项名称，在路由中定义好 -->
         <span>{{ item.meta.title }}</span>
@@ -40,7 +43,7 @@ const props = defineProps({
       <!-- 与上面注释大致相同，不多做额外注释 -->
       <template v-if="item.meta.icon">
         <el-icon>
-<!--          <svg-icon :icon-class="item.meta.icon"/>-->
+          <icon :icon="item.meta.icon"></icon>
         </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
@@ -52,14 +55,16 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/scss/theme.scss' as *;
+
 .is-active {
-  background: #409eff;
+  background: $bg-light-color;
   font-weight: 700;
 }
 
 .el-menu-item {
   &:hover {
-    color: #fff;
+    color: $bg-hover-color;
     font-weight: 700;
   }
 }
@@ -71,28 +76,28 @@ const props = defineProps({
 }
 
 // 下列代码是用于兼容horizontal所写，酌情删或留
-.el-menu--horizontal {
-  .el-menu-item.is-active {
-    background-color: transparent !important;
-    border-bottom: 2px solid #409eff !important;
-
-    .el-icon,
-    span {
-      color: #409eff !important;
-    }
-  }
-
-  .el-sub-menu.is-active {
-    .el-sub-menu__title {
-      border: 0 !important;
-    }
-
-    .el-icon,
-    span {
-      color: #409eff !important;
-    }
-  }
-}
+//.el-menu--horizontal {
+//  .el-menu-item.is-active {
+//    background-color: transparent !important;
+//border-bottom: 2px solid #409eff !important;
+//
+//    .el-icon,
+//    span {
+//color: #409eff !important;
+//    }
+//  }
+//
+//  .el-sub-menu.is-active {
+//    .el-sub-menu__title {
+//      border: 0 !important;
+//    }
+//
+//    .el-icon,
+//    span {
+//color: #409eff !important;
+//    }
+//  }
+//}
 </style>
 
 

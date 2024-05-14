@@ -45,7 +45,6 @@ router.beforeEach(async (to, from, next) => {
     // 如果有token，则直接通过
     if (token) {
         if (to.path !== '/login') {
-            console.log("routes", router.getRoutes());
             if (router.getRoutes().length == 2) {
                 handleLoginSuccess().then(() => {
                     next('/home')

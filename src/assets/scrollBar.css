@@ -1,0 +1,27 @@
+/* 仅对Webkit内核浏览器有效，如Chrome和Safari */
+::-webkit-scrollbar {
+    width: 12px; /* 定义滚动条宽度 */
+    height: 12px; /* 对垂直滚动条的高度进行定义（如果需要的话） */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* 轨道颜色 */
+    border-radius: 6px; /* 轨道的圆角 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* 滑块颜色 */
+    border-radius: 6px; /* 滑块的圆角 */
+    margin-left: 3px; /* 让滚动条向右偏移2px */
+}
+
+/* 对Firefox的支持 */
+{
+    scrollbar-width: thin  ; /* Firefox下滚动条宽度 */
+    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1)  ; /* 滑块和轨道颜色 */
+}
+
+/* 注意: Firefox目前不支持直接通过CSS改变滚动条的圆角或位置偏移，
+   需要使用JS或者自定义滚动条插件来实现更复杂的样式调整。 */

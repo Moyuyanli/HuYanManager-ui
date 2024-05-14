@@ -16,7 +16,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
     <div class="sidebar">
       <div>
         <!-- 项目名称及logo -->
-        <div class="title" >
+        <div class="title">
           <!--      <svg-icon icon-class="logo"/>-->
           <icon icon="House"></icon>
           <span>HuYan 插件管理</span>
@@ -50,7 +50,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
       <div class="top_bar"></div>
       <!-- 内容 -->
       <div class="content">
-        <router-view></router-view>
+        <router-view class="view"></router-view>
       </div>
     </div>
   </div>
@@ -64,17 +64,19 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
   height: 100vh;
   display: flex;
   justify-content: space-between;
-  background: url("https://data.chahuyun.cn/file/bg-3.png") no-repeat center center;
-  background-size: cover;
+  background: #bdbdbd;
+  //background: url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
+  //background-size: cover;
 }
 
 .sidebar {
-  width: 9%;
-  height: 98vh;
-  margin-top: 5px;
-  margin-left: 10px;
-  border-radius: 30px;
+  width: 9.5%;
+  height: 100vh;
+  //margin-top: 5px;
+  //margin-left: 10px;
+  //border-radius: 0 10px 10px 0;
   background: $bg-color;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 
@@ -84,27 +86,37 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
 }
 
 .top_bar {
-  width: 98%;
+  width: 99.5%;
   height: 8%;
   background-color: $bg-color;
-  border-radius: 30px;
-  margin: 5px auto;
+  border-radius: 0 0 10px 10px;
+  margin: auto;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 .title {
-  height: 50px;
+  height: 8vh;
   text-align: center;
-  line-height: 50px;
+  line-height: 8vh;
   //background-color: $title-bg-color;
-  color: $title-lord-color
+  color: $title-lord-color;
+  margin-bottom: 3px;
 }
 
 .content {
-  width: 98%;
-  height: 88%;
+  width: 99.5%;
+  height: 90%;
   overflow-y: auto;
-  margin: 15px auto 0;
-  border-radius: 30px;
+  margin: 10px auto 0;
+  border-radius: 10px 0 0 10px;
+  background: $bg-transparent-color;
+  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
+  background-size: cover;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+
+  .view {
+    padding: 5px 0 0 5px;
+  }
 }
 </style>
 

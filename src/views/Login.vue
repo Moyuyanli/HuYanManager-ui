@@ -17,8 +17,15 @@
 <script lang="ts" setup>
 import {ref} from "vue";
 import {login, type LoginUser,} from "@/apis/api/login";
-import {ElMessage} from "element-plus";
+import {ElLoading, ElMessage} from "element-plus";
 import {useRouter} from "vue-router";
+import {getToken} from "@/utils/auth";
+import {handleLoginSuccess} from "@/utils/router";
+
+/**
+ * 全屏loading
+ */
+const fullscreenLoading = ref(false)
 
 const router = useRouter()
 
@@ -27,11 +34,16 @@ const form = ref({
   password: null,
 })
 
-const  loginClick = () => {
+const loginClick = () => {
   if (0 == 0) {
-    router.replace('/home')
     localStorage.setItem('token', "abc123456");
-    return
+    toHome()
+    return;
+  }
+  if (getToken()) {
+    ElMessage.success("你已登录，请勿重复登录!")
+    toHome()
+    return;
   }
   if (form.value.username && form.value.password) {
     let loginUser: LoginUser = {
@@ -41,7 +53,7 @@ const  loginClick = () => {
     login(loginUser).then(res => {
       if (res.code === 200) {
         localStorage.setItem('token', res.data.token);
-        // router.push("navigation")
+        toHome()
       } else {
         ElMessage.error(res.msg);
       }
@@ -49,6 +61,22 @@ const  loginClick = () => {
       ElMessage.error(err.msg)
     });
   }
+}
+
+const toHome = () => {
+  const loading = ElLoading.service({
+    lock: true,
+    text: 'Loading',
+    background: 'rgba(0, 0, 0, 0.7)',
+  })
+  handleLoginSuccess().then(() => {
+    setTimeout(() => {
+      loading.close()
+      router.replace('/home')
+    }, 2000)
+  })
+
+
 }
 
 </script>

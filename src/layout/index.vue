@@ -2,9 +2,15 @@
 // sidebarItem 项组件
 import SideBarItem from './sidebar/sidebarItem.vue';
 import {useRouter} from 'vue-router';
+
+
 // 拿到路由列表，过滤我们不想要的
 const router = useRouter();
 const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
+
+
+console.log("router",router.getRoutes())
+
 </script>
 
 <template>
@@ -12,7 +18,7 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
   <div class="sidebar_box">
     <!-- 项目名称及logo -->
     <div class="sidebar-logo flex-center">
-      <svg-icon icon-class="logo"/>
+<!--      <svg-icon icon-class="logo"/>-->
       <span>HuYan 插件管理</span>
     </div>
 

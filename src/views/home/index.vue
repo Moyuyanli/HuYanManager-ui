@@ -1,10 +1,16 @@
 <template>
   <div class="home"> >
     <p>这是一个主页！</p>
+    <el-button @click="cleanToken">清除token</el-button>
   </div>
 </template>
 
 <script lang="ts" setup>
+
+const cleanToken = () => {
+  localStorage.clear()
+}
+
 
 </script>
 

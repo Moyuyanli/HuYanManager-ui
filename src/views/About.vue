@@ -1,5 +1,5 @@
 <template>
-  <p>关于</p>
+  <p>by moyuyanli</p>
 </template>
 
 <script setup lang="ts">

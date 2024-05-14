@@ -23,7 +23,7 @@ const props = defineProps({
       <template v-if="item.meta.icon" #title>
         <!-- 菜单项图标，我此处用的是全局封装的 svg组件 -->
         <el-icon>
-          <svg-icon :icon-class="item.meta.icon"/>
+<!--          <svg-icon :icon-class="item.meta.icon"/>-->
         </el-icon>
         <!-- 菜单项名称，在路由中定义好 -->
         <span>{{ item.meta.title }}</span>
@@ -40,7 +40,7 @@ const props = defineProps({
       <!-- 与上面注释大致相同，不多做额外注释 -->
       <template v-if="item.meta.icon">
         <el-icon>
-          <svg-icon :icon-class="item.meta.icon"/>
+<!--          <svg-icon :icon-class="item.meta.icon"/>-->
         </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>

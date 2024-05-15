@@ -117,7 +117,7 @@ fetchSystemInfo()
 }
 
 .sidebar {
-  width: 9.5%;
+  width: 9.8%;
   height: 100vh;
   background: $bg-color;
   box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);

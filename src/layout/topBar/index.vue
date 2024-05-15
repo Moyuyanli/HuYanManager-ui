@@ -4,6 +4,12 @@
       <el-card class="card" shadow="always">
         当前mirai-console-load运行时间: {{ duration }}
       </el-card>
+      <div class="bot-prefix" >当前在线bot:
+        <div class="bot">
+          <el-avatar :size="30" :src="userInfo.url" ></el-avatar>
+          <div class="bot-info">{{botName}}({{botId}})</div>
+        </div>
+      </div>
     </div>
     <div class="right">
       <div class="name">欢迎:{{ userInfo.username }}</div>
@@ -23,6 +29,9 @@ import {useRouter} from "vue-router";
 const router = useRouter()
 
 const userInfo: UserInfo = JSON.parse(localStorage.getItem("userInfo")!)
+
+let botName: string = "Kemomimi";
+let botId:number = 2061954151;
 
 let duration = ref('')
 
@@ -98,11 +107,33 @@ const logout = () => {
 }
 
 .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .card {
-    max-width: 480px;
-    margin-left: 8px;
+    max-width: 80%;
+    margin-left: 4px;
     border-radius: 3px 3px 3px 10px;
+  }
+
+  .bot-prefix {
+    margin-left: 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bot {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 5px;
+    border: 1px #181818;
+  }
+
+  .bot-info {
+    margin-left: 3px;
   }
 
 }

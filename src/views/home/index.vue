@@ -4,14 +4,16 @@
       <p>这是一个主页！</p>
     </div>
     <div class="middle-bar">
-      <cpu></cpu>
+      <gauge class="gauge" :value="10" title="CPU"></gauge>
+      <gauge class="gauge" :value="50" title="MEMORY"></gauge>
+      <gauge class="gauge" :value="10" title="DISK"></gauge>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 
-import Cpu from "@/views/home/cpu.vue";
+import gauge from "@/views/home/gauge.vue";
 
 const cleanToken = () => {
   localStorage.clear()
@@ -46,5 +48,12 @@ const cleanToken = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+gap: 60px;
+
+  height: 40vh;
+
+  .gauge {
+    //margin: 0 25px 0;
+  }
 }
 </style>

@@ -57,9 +57,9 @@ const refreshTime = () => {
 
   // 定义时间单位和阈值
   const units = [
-    {name: '小时', threshold: 60 * 60},
-    {name: '天', threshold: 24 * 60 * 60},
-    {name: '月', threshold: 30 * 24 * 60 * 60}, // 简单按每月30天计算
+    {name: '小时', unit: 24 ,threshold: 60 * 60},
+    {name: '天',unit: 30 , threshold: 24 * 60 * 60},
+    {name: '月',unit: 12 , threshold: 30 * 24 * 60 * 60}, // 简单按每月30天计算
   ];
 
   duration.value = `${Math.floor(diffInMinutes / 60 % 60)} 分 ${diffInMinutes % 60} 秒`
@@ -68,8 +68,7 @@ const refreshTime = () => {
   for (const unit of units) {
     if (diffInMinutes >= unit.threshold) {
       const count = Math.floor(diffInMinutes / unit.threshold);
-      duration.value = `${count} ${unit.name} ` + duration.value;
-      break;
+      duration.value = `${count % unit.unit } ${unit.name} ` + duration.value;
     }
   }
 };

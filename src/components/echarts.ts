@@ -1,7 +1,7 @@
 // 引入 echarts 核心模块。
 import * as echarts from 'echarts/core';
 //引入柱状图和折线图组件。
-import { BarChart,LineChart } from 'echarts/charts';
+import { LineChart,GaugeChart } from 'echarts/charts';
 // 引入标题、提示框、网格、数据集和数据转换器组件。
 import {
     TitleComponent,
@@ -54,11 +54,11 @@ echarts.use([
     GridComponent,
     DatasetComponent,
     TransformComponent,
-    BarChart,
     LineChart,
     LabelLayout,
     UniversalTransition,
-    CanvasRenderer
+    CanvasRenderer,
+    GaugeChart
 ]);
 // 导出
 export default echarts;

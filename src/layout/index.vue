@@ -155,7 +155,7 @@ fetchSystemInfo()
   border-radius: 10px 0 0 10px;
   background: linear-gradient($bg-transparent-color, $bg-transparent-color), url("https://data.chahuyun.cn/file/bg-4.jpg") no-repeat center center;
   background-size: cover;
-  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: $shadow;
 
   .view {
     padding: 5px 0 0 5px;

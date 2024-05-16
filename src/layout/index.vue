@@ -12,6 +12,8 @@ import {ref} from "vue";
 const router = useRouter();
 const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
 
+console.log("routers",router.getRoutes())
+
 const systemInfo = ref<SystemInfo>({
   title: "插件管理",
   description: "管理平台",

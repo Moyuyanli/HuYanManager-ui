@@ -1,5 +1,7 @@
 <template>
-<p>子关于</p>
+  <div>
+    这里是插件的自定义页面
+  </div>
 </template>
 
 <script setup lang="ts">

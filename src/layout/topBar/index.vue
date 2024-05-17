@@ -23,7 +23,7 @@
 <script lang="ts" setup>
 
 import {type UserInfo} from "@/apis/api/login";
-import {ref, toRaw} from "vue";
+import {onMounted, ref, toRaw} from "vue";
 import {useRouter} from "vue-router";
 
 const router = useRouter()
@@ -36,12 +36,14 @@ let botId:number = 2061954151;
 let duration = ref('')
 
 
-// 实时时间更新
-setInterval(() => {
+onMounted(()=>{
   refreshTime()
-}, 1000);
+  // 实时时间更新
+  setInterval(() => {
+    refreshTime()
+  }, 1000);
 
-
+})
 const refreshTime = () => {
 // 当前时间
   let nowTime = new Date();

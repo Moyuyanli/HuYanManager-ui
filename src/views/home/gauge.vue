@@ -112,6 +112,7 @@ onMounted(() => {
   width: 25%;
   height: 100%;
 
+  font-family: 'miaozi', sans-serif;
 
   .gauge {
     width: 100%;

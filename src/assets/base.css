@@ -35,7 +35,7 @@
     --color-text: var(--vt-c-text-light-1);
 
     --section-gap: 160px;
-    --el-font-size-base:15px !important;
+    --el-font-size-base: 15px !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,7 +57,7 @@
 *::after {
     box-sizing: border-box;
     margin: 0;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 body {
@@ -67,7 +67,8 @@ body {
     transition: color 0.5s,
     background-color 0.5s;
     line-height: 1.6;
-    font-family: 'miaozi',
+    font-family: Poppins,
+    'miaozi',
     Inter,
     -apple-system,
     BlinkMacSystemFont,

@@ -14,6 +14,6 @@ $scroll-block-color: rgb(87, 87, 87);
 
 //#000
 $text-color: var(--color-text); // 或者使用 lighten($background-color, 50%) 自动计算对比色
-
+$text-hover-color: #000;
 
 $shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);

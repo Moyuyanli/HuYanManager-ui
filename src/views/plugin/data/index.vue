@@ -66,7 +66,6 @@ const tableList = ref<TableCard[]>([
 ])
 
 const switchTable = (table: TableCard) => {
-  console.log("table", table)
   tableList.value.forEach(it => it.isActive = it.table === table.table)
 }
 

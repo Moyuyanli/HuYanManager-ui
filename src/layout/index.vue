@@ -12,7 +12,6 @@ import {ref} from "vue";
 const router = useRouter();
 const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow);
 
-console.log("routers",router.getRoutes())
 
 const systemInfo = ref<SystemInfo>({
   title: "插件管理",
@@ -31,13 +30,13 @@ async function fetchSystemInfo() {
   }
 
   // 如果缓存中没有，再发起请求获取
-  const res = await getSysInfo();
-  if (res.code === 200) {
-    const info = res.data;
+  // const res = await getSysInfo();
+  // if (res.code === 200) {
+  //   const info = res.data;
     // 将获取到的信息存储到localStorage中，以便下次直接使用
-    localStorage.setItem("sys-info", JSON.stringify(info));
-    return info;
-  } else {
+    // localStorage.setItem("sys-info", JSON.stringify(info));
+    // return info;
+  // } else {
     ElMessage.error("系统信息获取失败!")
     // 处理错误情况，可以抛出错误，或者返回默认值等
     return {
@@ -47,7 +46,7 @@ async function fetchSystemInfo() {
       ui_version: "v1.0.0",
       plugin_version: "v1.0.0"
     };
-  }
+  // }
 }
 
 fetchSystemInfo()

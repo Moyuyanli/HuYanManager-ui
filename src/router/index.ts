@@ -6,20 +6,19 @@ import Login from "@/views/Login.vue";
 
 // 初始化基础路由
 const baseRoutes =
-
     [
-    {
-        path: '',
-        name: 'layoutIndex',
-        component: () => import('@/layout/index.vue'),
-        children: [],
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-    },
-]
+        {
+            path: '',
+            name: 'layoutIndex',
+            component: () => import('@/layout/index.vue'),
+            children: [],
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login,
+        },
+    ]
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,24 +46,20 @@ export async function handleLoginSuccess() {
 router.beforeEach(async (to, from, next) => {
     const token = getToken();
 
+    if (!router.hasRoute("mirai")) {
+        // 这里可以重定向到一个加载页面，或者直接等待动态路由加载完成
+        await addDynamicRoutes();
+        await router.replace(to);
+    }
+
     // 如果是登录页面且有token，重定向到首页
     if (to.path === '/login' && token) {
         next('/home');
     } else if (token) {
-        // 已登录但动态路由可能还未加载，可以考虑加个加载页面或直接等待
-        if (router.getRoutes().length <= baseRoutes.length) {
-            // 这里可以重定向到一个加载页面，或者直接等待动态路由加载完成
-            // 为简化示例，这里假设addDynamicRoutes已处理好异步逻辑
-            await addDynamicRoutes();
-        }
-        next();
+        next()
     } else {
         // 未登录处理
-        if (!to.path.includes('/login')) {
-            next('/login');
-        } else {
-            next();
-        }
+        next(to.path === '/login' ? '' : '/login');
     }
 });
 

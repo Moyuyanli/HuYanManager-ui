@@ -20,7 +20,8 @@ import {login, type LoginUser, type UserInfo,} from "@/apis/api/login";
 import {ElLoading, ElMessage} from "element-plus";
 import {useRouter} from "vue-router";
 import {getToken} from "@/utils/auth";
-import {handleLoginSuccess} from "@/utils/router";
+import {handleLoginSuccess} from "@/router";
+
 
 /**
  * 全屏loading

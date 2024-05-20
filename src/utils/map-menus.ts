@@ -26,7 +26,6 @@ export interface MenuItem {
 export async function getMenuItems(): Promise<MenuItem[]> {
 
     let routers = sessionStorage.getItem("routers");
-
     if (routers) {
         return JSON.parse(routers);
     }

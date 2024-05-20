@@ -1,7 +1,6 @@
 import {post} from "@/utils/methods";
 import type {Result} from "@/apis/type/Results";
 import type {MenuItem} from "@/utils/map-menus";
-import {ElMessage} from "element-plus";
 
 export interface RouterInfo {
     menus: MenuItem[];
